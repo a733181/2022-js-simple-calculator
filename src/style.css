@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+:root {
+  --bg-color: #fdc3b5;
+  --shadow-color: #f9afa4;
+  --gradient-color-1: #e33c68;
+  --gradient-color-2: #f48768;
+  --text-color: white;
+  --button-bg-color: rgba(255, 255, 255, 0.2);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.container {
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px var(--shadow-color);
+  padding: 15px;
+  background-image: linear-gradient(
+    180deg,
+    var(--gradient-color-1),
+    var(--gradient-color-2)
+  );
+  color: var(--text-color);
+}
+
+.title {
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.show-all {
+  height: 16px;
+  text-align: right;
+  /* overflow: auto; */
+}
+
+.county-box {
+  display: flex;
+}
+
+.show-county {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: block;
+  font-size: 24px;
+  outline: none;
+  text-align: right;
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+}
+.show-county::placeholder {
+  color: var(--text-color);
+}
+
+.numbers {
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.arithmetic {
+  width: 25%;
+}
+
+.numbers li {
+  width: 32%;
+}
+
+.numbers li,
+.arithmetic li {
+  font-size: 20px;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3px;
+  margin-right: 3px;
+  padding: 20px 0;
+}
+
+.numbers li:hover,
+.arithmetic li:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.numbers li:active,
+.arithmetic li:active {
+  position: relative;
+  top: 2px;
+}
+
+.arithmetic li {
+  margin-right: 0;
+}

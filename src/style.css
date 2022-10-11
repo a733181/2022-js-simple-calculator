@@ -48,7 +48,7 @@ body {
   display: flex;
 }
 
-.show-county {
+.sum {
   padding: 10px 15px;
   margin-bottom: 10px;
   width: 100%;
@@ -58,9 +58,6 @@ body {
   text-align: right;
   background-color: transparent;
   border: none;
-  color: var(--text-color);
-}
-.show-county::placeholder {
   color: var(--text-color);
 }
 
@@ -78,8 +75,7 @@ body {
   width: 32%;
 }
 
-.numbers li,
-.arithmetic li {
+.county-box li {
   font-size: 20px;
   background-color: var(--button-bg-color);
   cursor: pointer;
@@ -91,12 +87,10 @@ body {
   padding: 20px 0;
 }
 
-.numbers li:hover,
-.arithmetic li:hover {
+.county-box li:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.numbers li:active,
-.arithmetic li:active {
+.county-box li:active {
   position: relative;
   top: 2px;
 }

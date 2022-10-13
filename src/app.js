@@ -30,8 +30,8 @@ function calculatorHandler(value) {
     if (lastIsString) {
       return;
     }
-    showAllEl.innerText = sumText;
-    sumEl.innerText = eval(sumText);
+    showAllEl.innerText = `${sumText} = ${eval(sumText)}`;
+    sumEl.innerText = 0;
     isCount = false;
   } else if (text === 'C' || text === 'c') {
     sumEl.innerText = '0';
@@ -51,7 +51,7 @@ function calculatorHandler(value) {
       if (!isString) {
         isCount = true;
       }
-    } else if (!['+', '*', '/'].includes(text)) {
+    } else if (!['+', '*', '/'].includes(text) || isCount) {
       sumEl.innerText = text;
     }
   }

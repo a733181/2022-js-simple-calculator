@@ -1,7 +1,8 @@
 'use strict';
+const mainEl = document.querySelector('.main');
 const sumEl = document.querySelector('.sum');
-const btnsEl = document.querySelectorAll('.county-box li');
-const showAllEl = document.querySelector('.show-all');
+const btnsEl = document.querySelectorAll('.btn');
+const showAllEl = document.querySelector('.show');
 
 let isCount = false;
 
@@ -16,6 +17,17 @@ document.addEventListener('keydown', (e) => {
     !isNaN(Number(e.key)) ||
     ['+', '-', '*', '/', '.', 'Enter', 'C', 'c'].includes(e.key)
   ) {
+    btnsEl.forEach((btnEl) => {
+      if (e.key === btnEl.innerText) {
+        btnEl.classList.add('key-active');
+      } else if (e.key === 'Enter' && btnEl.innerText === '=') {
+        btnEl.classList.add('key-active');
+      }
+      setTimeout(() => {
+        btnEl.classList.remove('key-active');
+      }, 300);
+    });
+
     calculatorHandler(e.key);
   }
 });
@@ -33,6 +45,7 @@ function calculatorHandler(value) {
     showAllEl.innerText = `${sumText} = ${eval(sumText)}`;
     sumEl.innerText = 0;
     isCount = false;
+    mainEl.classList.add('same');
   } else if (text === 'C' || text === 'c') {
     sumEl.innerText = '0';
     showAllEl.innerText = '';
@@ -47,12 +60,16 @@ function calculatorHandler(value) {
     }
 
     if (sumText !== '0') {
-      sumEl.innerText += text;
+      if (sumText === '-' && text === '0') {
+        return;
+      }
       if (!isString) {
         isCount = true;
       }
-    } else if (!['+', '*', '/'].includes(text) || isCount) {
+      sumEl.innerText += text;
+    } else if (!['+', '*', '/'].includes(text)) {
       sumEl.innerText = text;
+      mainEl.classList.remove('same');
     }
   }
 }
